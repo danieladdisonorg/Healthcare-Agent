@@ -1,0 +1,17 @@
+pydantic>=2.7.4,<3.0.0
+pydantic-settings>=2.0.0,<3.0.0
+langchain==0.3.25
+langchain-community==0.3.24
+langchain-aws
+boto3
+requests>=2.31.0,<2.32.0
+confluent-kafka==2.10.0
+python-dotenv
+fastapi
+uvicorn
+authlib
+cachetools
+fastavro
+httpx
+attrs
+avro-python3

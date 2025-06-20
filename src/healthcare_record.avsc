@@ -1,0 +1,59 @@
+{
+  "type": "record",
+  "name": "HealthcareRecord",
+  "namespace": "com.mycorp.healthcare",
+  "fields": [
+    {
+      "name": "record_type",
+      "type": {
+        "type": "enum",
+        "name": "RecordType",
+        "symbols": ["ICU_PATIENT_UPDATE", "APPOINTMENT_SCHEDULE"]
+      }
+    },
+    {
+      "name": "patient_id",
+      "type": "string"
+    },
+    {
+      "name": "timestamp",
+      "type": "long",
+      "logicalType": "timestamp-millis"
+    },
+    {
+      "name": "icu_details",
+      "type": [
+        "null",
+        {
+          "type": "record",
+          "name": "ICUDetails",
+          "fields": [
+            {"name": "bed_number", "type": "string"},
+            {"name": "heart_rate", "type": "int"},
+            {"name": "blood_pressure", "type": "string"},
+            {"name": "respiratory_rate", "type": "int"},
+            {"name": "temperature_celsius", "type": "float"},
+            {"name": "notes", "type": ["null", "string"]}
+          ]
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "appointment_details",
+      "type": [
+        "null",
+        {
+          "type": "record",
+          "name": "AppointmentDetails",
+          "fields": [
+            {"name": "doctor_id", "type": "string"},
+            {"name": "appointment_time", "type": "long", "logicalType": "timestamp-millis"},
+            {"name": "reason", "type": "string"}
+          ]
+        }
+      ],
+      "default": null
+    }
+  ]
+}
